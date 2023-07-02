@@ -29,6 +29,9 @@ Harici olarak kitap bilgisi ve ödünç kaydý düzenleme özelliklerini muhteva etmek
 <li>Loglama özelliðinin eklenmesi. (SeriLog ile halledilmiþtir.)</li>
 <li>Bireysel testlerin akabinde genel bakýþ, son gözden geçirme.</li>
 <li>Deploy.</li>
+<i>Bu ekleme 03.07.2023 00:54'de yapýlmýþtýr</i>
+<h3>Postman ile yapýlan testler:</h3>
+GET metodunu muhteva eden sayfalar tarayýcý üzerinden görüntülenebilmesine karþýn, POST metoduna tabii adreslerin testleri Postman yazýlýmýyla yapýldýðýnda [ValidateAntiForgeryToken] anotasyonu sayesinde, bu projedeki ilgili front-end componenti haricinde eriþim saðlanamamaktadýr.
 <br/>
 <hr/>
 <b><i>Güzel bir antrenmandý, Sanction Scanner'a teþekkürler.</i></b>
