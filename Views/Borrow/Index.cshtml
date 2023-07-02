@@ -1,0 +1,73 @@
+﻿@model IEnumerable<SancScan.Models.Borrow>
+
+@{
+    ViewData["Title"] = "Ödünçler";
+}
+
+<h3 class="text-center">ÖDÜNÇ VERİLEN KİTAPLARIN LİSTESİ</h3>
+@TempData["BookBorrowedYet"]
+@TempData["DateIncompatibility"]
+@TempData["BringBackDateError"]
+<hr/>
+<p>
+    <a asp-action="Create" class="btn btn-outline-success">Yeni Ödünç Kaydı Oluştur</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Ödünç Alanın İsmi
+            </th>
+            <th>
+                Kitap Adı
+            </th>
+            <th>
+                Ödünç Alınan Tarih
+            </th>
+            <th>
+                Geri getireceği tarih
+            </th>
+            <th>
+                Geri getirildi mi?
+            </th>
+            <th>
+                Geri Getirildiği Tarih
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BorrowerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Book.BookName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BorrowDateTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BringBackDate)
+            </td>
+            <td>
+                @if(item.IsBroughtBack)
+                {
+                        <p>Getirildi</p>
+                }
+                else
+                {
+                        <p>Getirilmedi.</p>        
+                }
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReceivedBackTime)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.BorrowId" class="btn btn-primary">Kaydı Düzenle</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

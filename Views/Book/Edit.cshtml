@@ -1,0 +1,54 @@
+﻿@model SancScan.Models.Book
+
+@{
+    ViewData["Title"] = "Düzenle";
+}
+
+<h3 class="text-center">KİTAP BİLGİSİ DÜZENLEME SAYFASI</h3>
+
+<hr />
+<div class="d-inline-flex p-2">
+    <div class="row">
+        @using (Html.BeginForm("Edit", "Book", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+        {
+            <div class="row">
+                
+                    <div class="form-group">
+                        <label for="BookName" class="control-label">Kitap Adı</label>
+                        <input name="BookName" class="form-control" value="@Model.BookName"/>
+                        <span asp-validation-for="BookName" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="AuthorName" class="control-label">Yazar Adı</label>
+                        <input name="AuthorName" class="form-control" value="@Model.AuthorName"/>
+                        <span asp-validation-for="AuthorName" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Image">Resim</label>
+                        <input type="file" name="Image" itemid="Image" accept="image/*" class="form-control" value="@Model.ImageFullPath"/>
+                    </div>
+                    <div class="form-group">
+                        
+                        <img src="@Url.Content("/Files/"+Model.ImageName)" name="CurrentImage" alt="@Model.ImageFullPath" style="width:200px; height: 200px; display:flex;"/>
+                    </div>
+
+
+                    <input type="submit" value="GÜNCELLE" class="btn btn-primary" style="margin-top: 20px;" />
+                    
+
+
+
+
+                
+            </div>
+
+
+        }
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

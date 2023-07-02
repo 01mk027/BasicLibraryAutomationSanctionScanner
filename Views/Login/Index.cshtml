@@ -1,0 +1,36 @@
+﻿@model IEnumerable<SancScan.Models.Login>
+
+@{
+    ViewData["Title"] = "Giriş";
+}
+
+
+
+    <h3 class="text-center">Giriş Sayfası</h3>
+    <hr/>
+@TempData["wrongCredential"]
+@TempData["UnauthorizedAccess"]
+@TempData["RegistrationSuccessful"]
+@using (Html.BeginForm("Index", "Login", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+{
+        <div class="d-inline-flex p-2">
+            <div class="row">
+              
+            <div class="form-outline mb-4">
+                <label class="form-label" for="username">Kullanıcı Adı</label>
+                <input type="text" id="username" name="username" class="form-control" />
+            </div>
+
+            <!-- Password input -->
+            <div class="form-outline mb-4">
+                <label class="form-label" for="form2Example2">Şifre</label>
+                <input type="password" id="password" name="password" class="form-control" />
+            </div>
+
+            <input type="submit" class="btn btn-success" value="GİRİŞ">
+        </div>
+
+    </div>
+
+}
+Üyelik oluşturmak için <a asp-action="Create">TIKLAYINIZ</a>.

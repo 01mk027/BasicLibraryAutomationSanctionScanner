@@ -1,0 +1,21 @@
+2023-07-02 00:37:52.501 +03:00 [WRN] 2.07.2023 00:37:52 Ödünç kaydı oluşturma işlemi içerisinde: Geri getirilecek tarih girilirken, girilmeye çalışılan tarihin ödünç alma tarihinden önce olduğu tespit edildi.
+2023-07-02 16:04:04.563 +03:00 [WRN] 2.07.2023 16:04:04 Ödünç kaydı düzenleme sayfası görüntülenirken:  girilen id'ye tabii ödünç kaydının boş olduğu tespit edildi.
+2023-07-02 16:06:54.880 +03:00 [WRN] 2.07.2023 16:06:54 Ödünç kaydı düzenleme sayfası görüntülenirken:  girilen id'ye tabii ödünç kaydının boş olduğu tespit edildi.
+2023-07-02 16:08:17.658 +03:00 [WRN] 2.07.2023 16:08:17 Ödünç kaydı düzenleme sayfası görüntülenirken:  girilen id'ye tabii ödünç kaydının boş olduğu tespit edildi.
+2023-07-02 16:10:39.432 +03:00 [WRN] 2.07.2023 16:10:39 Ödünç kaydı düzenleme sayfası görüntülenirken:  girilen id'ye tabii ödünç kaydının boş olduğu tespit edildi.
+2023-07-02 16:13:11.314 +03:00 [WRN] 2.07.2023 16:13:11 Ödünç kaydı düzenleme sayfası görüntülenirken:  girilen id'ye tabii ödünç kaydının boş olduğu tespit edildi.
+2023-07-02 20:24:02.362 +03:00 [WRN] 
+Message ---
+Object reference not set to an instance of an object.
+2023-07-02 20:24:02.420 +03:00 [WRN] 
+HelpLink ---
+null
+2023-07-02 20:24:02.424 +03:00 [INF] 
+Source ---
+SancScan
+2023-07-02 20:24:02.484 +03:00 [INF] 
+StackTrace ---
+   at SancScan.Controllers.BookController.Create(String BookName, String AuthorName, IFormFile Image) in C:\Users\Neverrun\source\repos\SancScan\Controllers\BookController.cs:line 157
+2023-07-02 20:24:02.485 +03:00 [INF] 
+TargetSite ---
+Void MoveNext()

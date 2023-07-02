@@ -1,0 +1,92 @@
+﻿@model IEnumerable<SancScan.Models.BookViewModel>
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor Accessor
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h3 class="text-center">KİTAPLARIN LİSTESİ</h3>
+
+<p>
+    <a asp-action="Create" class="btn btn-outline-success">Yeni Kitap Ekle</a>
+</p>
+<table class="table m-0">
+    <thead>
+        <tr>
+            <th scope="col">
+                Kitap Adı
+            </th>
+            <th scope="col">
+                Yazar İsmi
+            </th>
+
+            <th scope="col">
+                Resim
+            </th>
+            <th scope="col">
+                Var Mı?
+            </th>
+            <th scope="col">
+                Ödünç verildi mi?
+            </th>
+            <th scope="col">
+                Eklenme Zamanı
+            </th>
+            <th scope="col">
+                Emanet Alanın İsmi
+            </th>
+            <th scope="col">
+                Geri getireceği tarih
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td style="word-break:break-all;">
+                @Html.DisplayFor(modelItem => item.BookName)
+            </td>
+            <td style="word-break: break-all;">
+                @Html.DisplayFor(modelItem => item.AuthorName)
+            </td>
+            <td>
+                    <img src="/@Url.Content(item.ImageFullPath)" style="width:100px; height: 100px;" />
+            </td>
+            <td>
+                    @if (item.DoesExist)
+                    {
+                        <p>Var</p>
+                    }
+                    else
+                    {
+                        <p>Yok</p>
+                    }
+            </td>
+            <td>
+                    @if (item.IsBorrowed)
+                    {
+                        <p>Evet</p>
+                    }
+                    else
+                    {
+                        <p>Hayır</p>
+                    }
+            </td>
+                
+                <td>
+                @Html.DisplayFor(modelItem => item.CreatedAt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BorrowerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BringBackDate)
+            </td>
+            <td>
+                <a class="btn btn-sm btn-info" href="@Url.Action("Edit")/@item.BookId">Kitap Bilgisi Düzenle</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
